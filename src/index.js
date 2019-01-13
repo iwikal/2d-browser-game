@@ -1,8 +1,8 @@
 import {
   Application,
-  Sprite,
   loader
 } from 'pixi.js'
+import Ship from './ship'
 
 const app = new Application({
   width: window.innerWidth,
@@ -20,17 +20,17 @@ const resize = () => {
 window.addEventListener('resize', resize)
 
 const setup = () => {
-  const ship = new Sprite(
-    loader.resources['assets/att5.png'].texture
-  )
+  const ship = new Ship({
+    position: {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2
+    }
+  })
 
-  ship.anchor.set(0.5, 0.5)
-  ship.position.set(app.screen.width / 2, app.screen.height / 2)
-  app.stage.addChild(ship)
+  app.stage.addChild(ship.sprite)
 
-  const gameLoop = delta => {
-    const speed = 1 / 16
-    ship.rotation += delta * speed
+  const gameLoop = (delta) => {
+    ship.update(delta)
   }
 
   app.ticker.add(gameLoop)
