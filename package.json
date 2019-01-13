@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "pixi.js": "^4.8.5",
     "webpack": "^4.28.4"
   },
   "devDependencies": {
