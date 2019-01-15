@@ -4,6 +4,8 @@
   "description": "An interactive web thing",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --mode=production",
+    "deploy": "scripts/deploy.sh",
     "start": "webpack-dev-server -d --open --mode=development"
   },
   "author": "",
@@ -13,6 +15,7 @@
     "webpack": "^4.28.4"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
   }
